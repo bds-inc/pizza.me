@@ -1,0 +1,49 @@
+{
+    "name"             : "pizza.me",
+    "main"             : "index.js",
+    "version"          : "0.0.1",
+    "description"      : "An application for the ordering and tracking of pizza deliveries",
+    "homepage"         : "http://pizza.me",
+    "repository"       : {
+        "type"         : "git",
+        "url"          : "https://github.com/bds-inc/pizza.me"
+    },
+    "bugs"             : {
+        "url"          : "https://github.com/bds-inc/pizza.me/issues/",
+        "email"        : ""
+    },
+    "keywords"         : [
+        "pizza",
+        "deliveries",
+        "app",
+        "order tracking"
+    ],
+    "authors"           : {
+        "name"                  : ["Kiarie", "Jeremy"],
+        "email"                 : ["kiariemburu@gmail.com", "jeremywandui@gmail.com"]
+    },
+    "license"          : "MIT",
+    "homepage"         : "https://pizza.me",
+    "engines"          : {
+        "node"                  : ">6.0",
+        "npm"                   : ">=1.4"
+    },
+    "dependencies"     : {
+        "bluebird"              : "3.x",
+        "express"               : "4.x",
+        "pg-promise"            : "^5.0.3",
+        "pg-monitor"            : "^0.5.11"
+    },
+    "devDependencies"  : {
+        "jest-cli"              : "^14.0.1",
+        "jshint"                : "^2.9.1",
+        "http-status"           : "0.1.8",
+        "underscore"            : "1.5.2",
+        "newman"                : "3.x"
+    },
+    "scripts"         : {   
+        "test"                  : "jest",
+        "test-api-dev"          : "newman run ./test/test_dev_questions.json",
+        "test-api-prod"         : "newman run ./test/test_prod_questions.json"        
+    }
+}
