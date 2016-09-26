@@ -1,0 +1,18 @@
+{
+  "name": "pizza.me",
+  "description": "A web application for the online ordering and delivery of pizzas",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
