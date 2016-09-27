@@ -3,6 +3,8 @@ node_js:
 - '6'
 - '6.1'
 - '5.11'
+notifications:
+  slack: bds-inc:2vAniasTV5oadmFhazBO776M
 deploy:
   provider: heroku
   on: master
