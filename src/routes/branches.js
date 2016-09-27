@@ -6,7 +6,7 @@ const router = express.Router()
 
 // Home page route for branches
 router.get('/', (req, res) => {
-  res.json({success:true, "Branches home page!"})
+  res.json({success:true, message:"Branches home page!"})
 })
 
 module.exports = router
