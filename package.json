@@ -32,7 +32,8 @@
         "bluebird"              : "3.x",
         "express"               : "4.x",
         "pg-promise"            : "^5.0.3",
-        "pg-monitor"            : "0.5.11"
+        "pg-monitor"            : "0.5.11",
+	"body-parser"           : "1.15.2"
     },
     "devDependencies"  : {
         "jest-cli"              : "^14.0.1",
