@@ -1,1 +1,1 @@
-select * from 
+SELECT * from branches;
