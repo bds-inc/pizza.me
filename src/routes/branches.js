@@ -16,6 +16,11 @@ function get(url, handler) {
   })
 }
 
+// About route for branches.
+router.get('/about', (req, res) =>
+  res.json({success:true, message:"About branches!"})
+)
+
 // Home page route for branches
 get('/', () => db.branches.all())
 
