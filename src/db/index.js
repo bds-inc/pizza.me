@@ -27,6 +27,7 @@ var options = {
 
 };
 
+// TODO: Change this to use the config file.
 // Database connection parameters:
 var config = {
     host: 'localhost',

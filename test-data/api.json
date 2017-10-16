@@ -1,0 +1,186 @@
+{
+  "branches": [
+    {
+      "id": 8,
+      "name": "Kovacek Plain",
+      "location": "163.8408",
+      "contact_info": "279-696-6495",
+      "address": "287 Rick Meadow"
+    },
+    {
+      "id": 9,
+      "name": "Keanu Track",
+      "location": 154.722,
+      "contact_info": "254-702-3788",
+      "address": "6815 Mirema"
+    },
+    {
+      "id": 11,
+      "name": "Corkery Divide",
+      "location": "176.6176",
+      "contact_info": "406-975-8977",
+      "address": "7806 Norberto Landing"
+    },
+    {
+      "id": 12,
+      "name": "Madelynn Club",
+      "location": "175.7120",
+      "contact_info": "291-144-3788",
+      "address": "6815 Wiegand Summit"
+    },
+    {
+      "name": "Test Value",
+      "location": 175.712,
+      "contact_info": "291-144-3788",
+      "address": "6815 Kasarani",
+      "id": 13
+    },
+    {
+      "name": "Test Value",
+      "location": 175.712,
+      "contact_info": "291-144-3788",
+      "address": "6815 Kasarani",
+      "id": 14
+    },
+    {
+      "name": "Test Value",
+      "location": 175.712,
+      "contact_info": "291-144-3788",
+      "address": "6815 Kasarani",
+      "id": 15
+    },
+    {
+      "id": 10,
+      "name": "Mraz Isle",
+      "location": -55.0174,
+      "contact_info": "247-342-0232",
+      "address": "04324 Georgianna Estate"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "total": "437.00",
+      "balance": "311.00",
+      "due_date": "2017-07-16T15:02:08.320Z",
+      "creation_date": "2016-10-12T04:00:22.981Z",
+      "modified_date": "2016-10-12T04:00:22.981Z",
+      "email": "Lulu67@gmail.com",
+      "status": 0
+    },
+    {
+      "id": 2,
+      "total": "972.00",
+      "balance": "923.00",
+      "due_date": "2016-12-25T17:45:02.647Z",
+      "creation_date": "2016-10-12T04:00:22.981Z",
+      "modified_date": "2016-10-12T04:00:22.981Z",
+      "email": "Corbin_Runte@gmail.com",
+      "status": 0
+    },
+    {
+      "id": 3,
+      "total": "87.00",
+      "balance": "899.00",
+      "due_date": "2017-04-24T23:56:13.031Z",
+      "creation_date": "2016-10-12T04:00:22.981Z",
+      "modified_date": "2016-10-12T04:00:22.981Z",
+      "email": "Lexie_Zemlak75@hotmail.com",
+      "status": 0
+    },
+    {
+      "id": 4,
+      "total": "614.00",
+      "balance": "333.00",
+      "due_date": "2017-01-30T18:12:19.072Z",
+      "creation_date": "2016-10-12T04:00:22.981Z",
+      "modified_date": "2016-10-12T04:00:22.981Z",
+      "email": "Hettie10@gmail.com",
+      "status": 0
+    },
+    {
+      "id": 5,
+      "total": "819.00",
+      "balance": "447.00",
+      "due_date": "2017-03-21T12:44:18.102Z",
+      "creation_date": "2016-10-12T04:00:22.981Z",
+      "modified_date": "2016-10-12T04:00:22.981Z",
+      "email": "Vivianne_Mosciski@gmail.com",
+      "status": 0
+    }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "name": "Quitzon Group"
+    },
+    {
+      "id": 2,
+      "name": "Corkery - Waelchi"
+    },
+    {
+      "id": 3,
+      "name": "Nikolaus - O'Conner"
+    },
+    {
+      "id": 4,
+      "name": "Okuneva, Metz and Kuvalis"
+    },
+    {
+      "id": 5,
+      "name": "Ernser - Ferry"
+    }
+  ],
+  "parcels": [
+    {
+      "id": 1,
+      "sent_by": 1870,
+      "received": false,
+      "received_on": "2016-10-11T23:38:39.514Z",
+      "sent_on": "2015-10-15T12:41:11.322Z",
+      "branch_from": 13289,
+      "description": "Explicabo est eaque.",
+      "modified": "2016-10-12T04:07:57.563Z"
+    },
+    {
+      "id": 2,
+      "sent_by": 76604,
+      "received": false,
+      "received_on": "2016-10-11T22:58:46.855Z",
+      "sent_on": "2016-10-11T13:11:29.911Z",
+      "branch_from": 82219,
+      "description": "Explicabo alias facilis sint eos illum similique esse enim qui.",
+      "modified": "2016-10-12T04:07:57.564Z"
+    },
+    {
+      "id": 3,
+      "sent_by": 66781,
+      "received": true,
+      "received_on": "2016-10-12T02:20:51.692Z",
+      "sent_on": "2015-11-16T15:01:26.264Z",
+      "branch_from": 51947,
+      "description": "Veritatis eveniet sed eligendi quis numquam incidunt in culpa.",
+      "modified": "2016-10-12T04:07:57.564Z"
+    },
+    {
+      "id": 4,
+      "sent_by": 73871,
+      "received": true,
+      "received_on": "2016-10-11T23:50:05.647Z",
+      "sent_on": "2016-08-06T04:55:24.071Z",
+      "branch_from": 3536,
+      "description": "Asperiores et fugit aut aut cumque qui pariatur quis voluptates.",
+      "modified": "2016-10-12T04:07:57.564Z"
+    },
+    {
+      "id": 5,
+      "sent_by": 84455,
+      "received": true,
+      "received_on": "2016-10-11T15:52:25.697Z",
+      "sent_on": "2016-07-27T03:23:46.475Z",
+      "branch_from": 36874,
+      "description": "Vel et itaque.",
+      "modified": "2016-10-12T04:07:57.564Z"
+    }
+  ]
+}

@@ -18,6 +18,7 @@ monitor.setTheme('matrix'); // changing the default theme;
 var $DEV = process.env.NODE_ENV === 'development';
 
 // Log file for database-related errors:
+// TODO: Add to .gitignore
 var logFile = './src/db/errors.log';
 
 // Below we are logging errors exactly the way they are reported by pg-monitor,

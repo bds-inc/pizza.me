@@ -2,7 +2,7 @@ const db = require('../db').db
 const express = require('express')
 const router = express.Router()
 
-// Authentication middleware here?
+// TODO: Authentication middleware here?
 
 // Helper get function
 function get(url, handler) {
