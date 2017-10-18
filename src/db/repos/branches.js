@@ -3,8 +3,13 @@ const sql  = require('../sql').branches
 module.exports = (rep, pgp) => {
   return {
     // Adds a new branch and returns the new id:
-    insert: values =>
-      rep.one(sql.insert_one, values, branch => branch.id),
+    insert: values => {      
+      let query = `insert into branches(name, address, contact_info)
+       values ( '${values.name}', '${values.address}', '${values.contact_info}')
+       returning branch_id`
+      rep.one(query, branch_id => branch_id)
+    }
+      ,
 
     // Returns all branch records:
     all: () => 
