@@ -28,6 +28,7 @@ function sql(file) {
 module.exports = {
     branches: {
         select_all: sql('branches/select_all.sql'),
-        insert_one: sql('branches/insert_one.sql')
+        insert_one: sql('branches/insert_one.sql'),
+        delete_by_id: sql('branches/delete_by_id.sql')
     }
 };

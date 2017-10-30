@@ -7,7 +7,7 @@ module.exports = (rep, pgp) => {
       let query = `insert into branches(name, address, contact_info)
        values ( '${values.name}', '${values.address}', '${values.contact_info}')
        returning branch_id`
-      rep.one(query, branch_id => branch_id)
+      return rep.one(query, branch_id => branch_id)
     }
       ,
 
@@ -24,6 +24,7 @@ module.exports = (rep, pgp) => {
     
     // Tries to remove a branch by ID, and returns the number of records deleted
     remove: id =>
-      rep.result(sql.delete_by_id, id, r => r.rowCount)
+      // rep.result(sql.delete_by_id, id, r => r.rowCount)
+      rep.result(`DELETE FROM branches WHERE branch_id = ${id};`)
   }
 }

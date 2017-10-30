@@ -5,11 +5,15 @@ const random = require('../src/utils')
 let baseurl = 'localhost:3000/api/v1/branches'
 
 describe('Branches API', () => {
-  beforeAll(done => {
+  var names = []
+
+  beforeAll(done => {    
     for(let i = 0; i < 5; i++){
+      var branch_name = random.random_word(5)
+      names.push(branch_name);
       db.branches.insert({
         id: i,
-        name: random.random_word(5),
+        name: branch_name,
         location: `163.84${i}`,
         contact_info: `279-696-649${i}`,
         address: `${i} Rick Meadow`
@@ -22,24 +26,29 @@ describe('Branches API', () => {
         )
     }
     done()    
-  });
+  })
+
   afterAll(done => {
     db.any('select * from branches')
-      .then(data => {        
-        data.forEach(branch => db.branches.remove(branch.id))
+      .then(data => {                
+        data.forEach(branch => db.branches.remove(branch.branch_id))
       })
       .catch(error => {
         console.log('Oops!:', error);
       })
       done()
   })
+
   describe('Given the root URL', () => {
 
     it('should be able to GET a list of all branches', (done) => {
       request.get(baseurl, (error, response) => {
         expect(response.status).toBe(200)
-        console.log("The data is: ", response.body)
-        // expect(response.body[0].id).not.toBeNull()
+        console.log("The data is: ", response.body.data)
+        for (var i; i = response.body.data.length; i++) {
+          console.log(`Comparing ${response.body.data[i]} to ${names[i]}`)
+          expect(response.body.data[i]['name']).toBe(names[i])
+        }        
         done()
       })
     })

@@ -1,1 +1,1 @@
-DELETE FROM branches WHERE id = $1;
+DELETE FROM branches WHERE branch_id = $1;
