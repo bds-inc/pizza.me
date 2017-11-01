@@ -32,7 +32,7 @@ router.route('/')
       location     : body.location,
       contact_info : body.contact_info
     })
-      .then(
+      .then(data =>
         res.json({ success:true, data })
       )
       .catch(error => 
@@ -42,9 +42,9 @@ router.route('/')
   // Get all branches
   .get((req, res) => {
     db.branches.all(req)
-      .then(data =>
+      .then(data => {
         res.json({ success: true, data })
-      )
+      })
       .catch(error =>
         res.json({ success: true, data })
       )

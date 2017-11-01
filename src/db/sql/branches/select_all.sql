@@ -1,1 +1,1 @@
-SELECT * from branches;
+SELECT * from branches ORDER BY branch_id;
