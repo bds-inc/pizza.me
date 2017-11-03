@@ -25,19 +25,19 @@ router.get('/about', (req, res) =>
 router.route('/')
   // Add a branch:
   .post((req, res) => {
-    let body = req.body
+    let body = req.body    
     db.branches.insert({
       name         : body.name,
       address      : body.address,
       location     : body.location,
       contact_info : body.contact_info
     })
-      .then(data =>
+      .then(data => {        
         res.json({ success:true, data })
-      )
-      .catch(error => 
+      })
+      .catch(error => {        
         res.json({ success:false, error: error.message || error })
-      )
+      })
   })
   // Get all branches
   .get((req, res) => {

@@ -1,1 +1,1 @@
-SELECT * FROM branches WHERE id = $1;
+SELECT * FROM branches WHERE branch_id = $1;
