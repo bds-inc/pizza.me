@@ -6,34 +6,38 @@ let baseurl = 'localhost:3000/api/v1/branches'
 
 describe('Branches API', () => {
   var names = []
+  var ids = []
 
-  beforeAll(() => {    
+  beforeAll(() => {
+    let promises = []
     for(let i = 0; i < 5; i++){
-      var branch_name = `name_at_index_${i}`
-      names.push(branch_name)
-      db.branches.insert({
-        id: i,
+      let branch_name = `name_at_index_${i}`
+      names.push(branch_name)      
+      promises.push(db.branches.insert({
         name: branch_name,
         location: `(163.84${i}), (163.84${i})`,
         contact_info: `279-696-649${i}`,
         address: `${i} Rick Meadow`
       })
-        .then(data =>
-          console.info("Successful! ", data)
-        )
-        .catch(error =>
-          console.warn(error)
-        )
-    }    
+      .then(data =>{
+        ids.push(data.branch_id)
+      })
+      .catch(error =>
+        console.warn(error)
+      )
+    )}
+    return Promise.all(promises).then(data => {
+      console.info("Test data created!")      
+    })
   })
 
   afterAll(() => {
     db.result('delete from branches')
       .then(data => {                
-        console.log("The data is: ", data)
+        console.info("Deleting from test DB... ", data)
       })
       .catch(error => {
-        console.log('Oops!:', error);
+        console.warn('Failed to delete from test DB:', error);
       })    
   })
 
@@ -78,13 +82,28 @@ describe('Branches API', () => {
               expect(entry.data.address).toBe(test_data.address)
             })
             .catch(error => {
-              console.log(' Any oops!:', error);
+              console.error(' Could not SELECT data:', error);
             })             
           })
         .catch(error => {
-          console.log('Oops!:', error);
+          console.error('Could not POST data:', error);
         })
         })
         
-    })    
+    })
+
+    describe("Given a branch_id url", () => {
+      test("Should be able to GET the branch data", () => {
+        ids.forEach(id => {
+          let url = `${baseurl}/${id}`
+          request.get(url, (error, response) => {        
+            let data = response.body.data
+            data.forEach((branch, index) => {
+                expect(branch.data.name).toBe(names[index])
+            })
+            expect(response.status).toBe(200)
+          })
+        })        
+      })
+    })
 })

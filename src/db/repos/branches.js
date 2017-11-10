@@ -6,8 +6,7 @@ module.exports = (rep, pgp) => {
     insert: values => {                  
       let query = `insert into branches (data) values ('${JSON.stringify(values)}') returning branch_id`
       return rep.one(query, branch_id => branch_id)
-    }
-      ,
+    },
 
     // Returns all branch records:
     all: () => 
