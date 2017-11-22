@@ -7,5 +7,10 @@ module.exports = {
           text += possible.charAt(Math.floor(Math.random() * possible.length));
       
         return text;
-      }
+      },
+
+    sanitize: function (data) {
+      // TODO: Implement. NOOP function atm
+      return data
+    }
 }

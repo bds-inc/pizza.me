@@ -2,6 +2,9 @@ const express      = require('express')
 const app          = express.Router()
 const bodyParser   = require('body-parser')
 
+// const AuthenticationController = require('../controllers/AuthenticationController')
+// const AuthenticationControllerPolicy = require('../policies/AuthenticationControllerPolicy')
+
 /* Routes */
 const branches     = require('./branches')
 // const users        = require('./users')
@@ -18,6 +21,10 @@ app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.urlencoded({'extended':'true'}))
 app.use(bodyParser.json())
 app.use(bodyParser.json({type:'application/vnd.api+json'}))
+
+// We'll use the controller policies here
+// app.use(AuthenticationControllerPolicy.policy)
+// app.use(AuthenticationController.authenticate)
 
 // Sanity check for our api
 // TODO: Cors checks here to verify authenticity of the request

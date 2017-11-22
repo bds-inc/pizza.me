@@ -1,8 +1,7 @@
-const db = require('../db').db
+const {branches} = require('../models')
 const express = require('express')
 const router = express.Router()
-
-// TODO: Authentication middleware here?
+const utils = require('../utils')
 
 // Helper get function
 function get(url, handler) {
@@ -16,7 +15,7 @@ function get(url, handler) {
   })
 }
 
-// About route for branches.
+// Sanity check
 router.get('/about', (req, res) =>
   res.json({success:true, message:"About branches!"})
 )
@@ -25,28 +24,23 @@ router.get('/about', (req, res) =>
 router.route('/')
   // Add a branch:
   .post((req, res) => {
-    let body = req.body    
-    db.branches.insert({
-      name         : body.name,
-      address      : body.address,
-      location     : body.location,
-      contact_info : body.contact_info
+    let body = req.body
+    branches.create({data: utils.sanitize(req.body)}, {returning: "id"})
+    .then(data => {
+      res.json({ success: true, data })
     })
-      .then(data => {        
-        res.json({ success:true, data })
-      })
-      .catch(error => {        
-        res.json({ success:false, error: error.message || error })
-      })
+    .catch(error =>
+      res.json({ success:false, error: error.message || error })
+    )
   })
   // Get all branches
   .get((req, res) => {
-    db.branches.all(req)
+    branches.findAll()
       .then(data => {
         res.json({ success: true, data })
       })
       .catch(error =>
-        res.json({ success: true, data })
+        res.json({ success:false, error: error.message || error })
       )
   })
 
@@ -54,7 +48,7 @@ router.route('/')
 router.route('/:branch_id')
   // get branch info by ID:
   .get((req, res) => {
-    db.branches.find(req.params.branch_id)
+    branches.findById(req.params.branch_id)
       .then(data =>
         res.json({ success:true, data })
       )
@@ -65,31 +59,34 @@ router.route('/:branch_id')
   // Update the branch given its ID:
   .patch((req, res) => {
     let body = req.body
-    db.branches.update({
-      name         : body.name,
-      address      : body.address,
-      location     : body.location,
-      contact_info : body.contact_info
+    branches.update({data: utils.sanitize(req.body)}, {
+      where: {
+        id: req.params.branch_id
+      }
     })
-      .then(data =>
-        res.json({ success:true, data })
-      )
-      .catch(error =>
-        res.json({ success:false, error: error.message || error })
-      )
+    .then(data =>
+      res.json({ success:true, message:`Updated ${data} row(s)` })
+    )
+    .catch(error =>
+      res.json({ success:false, error: error.message || error })
+    )                          
   })
   // Remove  branch by its ID:
   .delete((req, res) => {
-    db.branches.remove(req.params.branch_id)
-      .then(data =>
-        res.json({ success:true, data })
+    branches.destroy({
+      where: {
+        id: req.params.branch_id
+      }
+    })
+      .then(rowDeleted =>
+        res.json({ success:true, message: `Delete ${rowDeleted} row(s)` })
       )
       .catch(error =>
         res.json({ success:false, error: error.message || error })
       )
   })
 
-// find a branch by ID:
+// find a branch by ID (TODO: And any other filters required):
 get('/find/id=:id', req => db.branches.find(+req.params.id))
 
 module.exports = router
